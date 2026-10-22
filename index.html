@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registration Form</title>
+  <style>
+    body { font-family: Arial, sans-serif; max-width: 400px; margin: 40px auto; padding: 0 16px; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input { width: 100%; padding: 8px; margin-top: 4px; box-sizing: border-box; }
+    button { margin-top: 16px; padding: 10px 16px; cursor: pointer; }
+    .error-list { margin-top: 16px; padding: 8px 8px 8px 28px; color: #b00020; background: #fdecea; border: 1px solid #b00020; }
+    .success-message { margin-top: 16px; padding: 8px; color: #1b5e20; background: #e8f5e9; border: 1px solid #1b5e20; }
+    [hidden] { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Register</h1>
+
+  <form id="registration-form" data-testid="registration-form" novalidate>
+    <label for="name">Name</label>
+    <input id="name" name="name" type="text" data-testid="name-input">
+
+    <label for="email">Email</label>
+    <input id="email" name="email" type="email" data-testid="email-input">
+
+    <label for="password">Password</label>
+    <input id="password" name="password" type="password" data-testid="password-input">
+
+    <label for="age">Age</label>
+    <input id="age" name="age" type="number" data-testid="age-input">
+
+    <button type="submit" data-testid="submit-button">Submit</button>
+  </form>
+
+  <ul id="error-list" class="error-list" data-testid="error-list" role="alert" hidden></ul>
+  <div id="success-message" class="success-message" data-testid="success-message" role="status" hidden>Registration successful</div>
+
+  <script>
+    var form = document.getElementById('registration-form');
+    var errorList = document.getElementById('error-list');
+    var successMessage = document.getElementById('success-message');
+
+    var EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    function validate(values) {
+      var errors = {};
+
+      if (values.name.trim() === '') {
+        errors.name = 'Name is required.';
+      }
+
+      if (values.email.trim() === '') {
+        errors.email = 'Email is required.';
+      } else if (!EMAIL_PATTERN.test(values.email.trim())) {
+        errors.email = 'Email format is invalid.';
+      }
+
+      if (values.password === '') {
+        errors.password = 'Password is required.';
+      } else if (values.password.length < 8) {
+        errors.password = 'Password must be at least 8 characters.';
+      }
+
+      if (values.age.trim() === '') {
+        errors.age = 'Age is required.';
+      } else {
+        var age = Number(values.age);
+        if (isNaN(age) || age < 18 || age > 65) {
+          errors.age = 'Age must be between 18 and 65.';
+        }
+      }
+
+      return errors;
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var values = {
+        name: document.getElementById('name').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+        age: document.getElementById('age').value
+      };
+
+      var errors = validate(values);
+      var fields = ['name', 'email', 'password', 'age'];
+
+      errorList.innerHTML = '';
+      successMessage.hidden = true;
+
+      fields.forEach(function (field) {
+        if (errors[field]) {
+          var item = document.createElement('li');
+          item.setAttribute('data-testid', 'error-' + field);
+          item.textContent = errors[field];
+          errorList.appendChild(item);
+        }
+      });
+
+      if (errorList.children.length > 0) {
+        errorList.hidden = false;
+      } else {
+        errorList.hidden = true;
+        successMessage.hidden = false;
+      }
+    });
+  </script>
+</body>
+</html>
