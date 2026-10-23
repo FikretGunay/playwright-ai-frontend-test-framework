@@ -43,4 +43,3 @@ Date: 2026-10-22. Format: Given / When / Then.
 | AC-015 | **Given** all fields are empty, **when** the user presses Submit, **then** four errors are listed, one per field, in the order Name, Email, Password, Age. |
 | AC-016 | **Given** an error is displayed, **when** the user corrects the value and presses Submit again, **then** the error is removed and the success message is displayed. |
 | AC-017 | **Given** the success message is displayed, **when** the user makes a field invalid and presses Submit, **then** the success message is hidden and the error is displayed. |
-| AC-018 | **Given** any submission, **when** the user presses Submit, **then** the page is not reloaded and no data is stored. |

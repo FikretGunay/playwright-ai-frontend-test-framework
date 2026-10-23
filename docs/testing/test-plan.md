@@ -73,7 +73,7 @@ This plan describes how the registration form (`index.html`) will be tested: sco
 ## 8. Test Deliverables
 - Requirements, user stories, acceptance criteria (`docs/requirements/`)
 - This test plan
-- Test cases `TC-001` to `TC-020` (`docs/testing/test-cases/`)
+- Test cases `TC-001` to `TC-021` (`docs/testing/test-cases/`)
 - Automated suite (`tests/e2e/`)
 - Defect reports (`docs/testing/defects/`) and test reports (`docs/testing/test-reports/`) when created
 
@@ -95,18 +95,15 @@ This plan describes how the registration form (`index.html`) will be tested: sco
 | Requirement | Acceptance criteria | Test cases |
 |---|---|---|
 | REQ-001 | AC-003, AC-004 | TC-002, TC-003 |
-| REQ-002 | AC-005, AC-006 | TC-004, TC-005, TC-006 |
+| REQ-002 | AC-005, AC-006 | TC-004, TC-005, TC-006, TC-021 |
 | REQ-003 | AC-007, AC-008, AC-009 | TC-007, TC-008, TC-009 |
 | REQ-004 | AC-010 to AC-014 | TC-010 to TC-016, TC-020 |
 | REQ-005 | AC-015 | TC-017 |
 | REQ-006 | AC-001, AC-002 | TC-001 |
 | REQ-007 | AC-016, AC-017 | TC-018, TC-019 |
-| REQ-008 | AC-018 | Not covered yet (manual check planned) |
-
-Automated test without a TC document: `email without local part shows format error` (covers AC-006).
 
 ## 12. Schedule
 Cycle 1 (2026-10-22): full automated run of the suite. Manual exploratory session and cross-browser run are to be scheduled.
 
 ## 13. Cycle 1 Status
-Automated suite: 21 tests executed, 18 passed, 3 failed. Failures relate to Age below 18 being accepted (TC-011, TC-016) and to a test (TC-018) whose setup uses age 17. No defect report has been written yet. See the individual test case files for details.
+Automated suite: 21 tests executed, 18 passed, 3 failed. Failures relate to Age below 18 being accepted (TC-011, TC-016, defect BUG-001) and to a test (TC-018) whose setup uses age 17. See the individual test case files for details.

@@ -4,7 +4,7 @@ Date: 2026-10-22
 
 | ID | User story | Requirements | Priority |
 |---|---|---|---|
-| US-001 | As a visitor, I want to submit the registration form with valid data, so that I get confirmation that my registration succeeded. | REQ-006, REQ-008 | High |
+| US-001 | As a visitor, I want to submit the registration form with valid data, so that I get confirmation that my registration succeeded. | REQ-006 | High |
 | US-002 | As a visitor, I want to be told when my name or email is missing or invalid, so that I can correct them before registering. | REQ-001, REQ-002 | High |
 | US-003 | As a visitor, I want to be told when my password is too short, so that I can choose an acceptable password. | REQ-003 | High |
 | US-004 | As a visitor, I want to be told when my age is missing or outside the allowed range, so that I know whether I am eligible to register. | REQ-004 | High |

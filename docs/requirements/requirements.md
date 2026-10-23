@@ -27,7 +27,6 @@ Define the functional and non-functional requirements of a single-page registrat
 | REQ-005 | On submit, all validation errors are shown in a single error list below the form: one entry per invalid field, in field order (Name, Email, Password, Age). | High |
 | REQ-006 | When all fields are valid, the message `Registration successful` is shown and the error list is hidden. | High |
 | REQ-007 | Every submission resets the feedback of the previous submission. Old errors and the old success message must not remain visible. | Medium |
-| REQ-008 | Submission is handled on the client. The page is not reloaded and no data is sent or stored. | Medium |
 
 ## 4. Non-Functional Requirements
 

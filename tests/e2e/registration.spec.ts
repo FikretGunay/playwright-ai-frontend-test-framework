@@ -139,6 +139,12 @@ test.describe('Form-level behavior', () => {
   test('all fields empty shows four required errors', async ({ page }) => {
     await page.getByTestId('submit-button').click();
     await expect(page.getByTestId('error-list').locator('li')).toHaveCount(4);
+    await expect(page.getByTestId('error-list').locator('li')).toHaveText([
+      'Name is required.',
+      'Email is required.',
+      'Password is required.',
+      'Age is required.',
+    ]);
     await expect(page.getByTestId('success-message')).toBeHidden();
   });
 
